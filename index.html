@@ -9,13 +9,17 @@
 <body>
     <fieldset>
         <button id="paste-text-button">Paste text</button>
-        <textarea id="text" rows="5" cols="40"></textarea>
+        <textarea id="text" rows="2" cols="80"></textarea>
         <button id="reset-text-button">Clear text</button>
     </fieldset>
     <fieldset>
-        <button>Paste HTML</button>
-        <textarea id="html" rows="5" cols="40"></textarea>
+        <button id="paste-html-button">Paste HTML</button>
+        <textarea id="html" rows="13" cols="80"></textarea>
+        <button id="reset-html-button">Clear HTML</button>
     </fieldset>
+    <output id="html-output">
+        <span class="placeholder">HTML preview</span>
+    </output>
     <script src="clipboard.js"></script>
 </body>
 </html>

@@ -1,6 +1,28 @@
+body {
+    background: #ddd;
+}
+
 fieldset {
+    background: #efefef;
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+    min-height: 10px;
+    border: none;
+}
+
+textarea {
+    border-color: #ccc;
+}
+
+output {
+    background: #efefef;
+    display: block;
+    padding: 10px;
+}
+
+.placeholder {
+    color: #888;
+    text-shadow: 0 1px 0 #fff;
 }
