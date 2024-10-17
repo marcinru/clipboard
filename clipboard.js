@@ -11,6 +11,18 @@ const pasteImageButton = document.getElementById('paste-image-button');
 const resetImageButton = document.getElementById('reset-image-button');
 const imageWrapper = document.querySelector('.image-wrapper');
 
+pasteTextButton.addEventListener('click', () => {
+  // wkleić tekst ze schowka
+});
+
+pasteHTMLButton.addEventListener('click', () => {
+  // wkleić HTML ze schowka + wyrenderować HTML preview
+});
+
+pasteImageButton.addEventListener('click', () => {
+  // wkleić obrazek ze schowka
+});
+
 resetTextButton.addEventListener('click', () => {
   textField.value = '';
 });
@@ -30,42 +42,3 @@ resetImageButton.addEventListener('click', () => {
     img.remove();
   });
 });
-
-pasteTextButton.addEventListener('click', async () => {
-  try {
-    const text = await navigator.clipboard.readText();
-    textField.value += text;
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-pasteHTMLButton.addEventListener('click', async () => {
-  const items = await navigator.clipboard.read();
-
-  for (const item of items) {
-    if (item.types.includes('text/html')) {
-      const blob = await item.getType('text/html');
-      const html = await blob.text();
-      htmlField.value = html;
-      htmlOutput.innerHTML = html;
-    }
-  }
-});
-
-pasteImageButton.addEventListener('click', async () => {
-  const items = await navigator.clipboard.read();
-
-  for (const item of items) {
-    if (item.types.includes('image/png')) {
-      const blob = await item.getType('image/png');
-      appendImage(blob);
-    }
-  }
-});
-
-const appendImage = (blob) => {
-  const img = document.createElement('img');
-  img.src = URL.createObjectURL(blob);
-  imageWrapper.append(img);
-};
