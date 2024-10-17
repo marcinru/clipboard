@@ -18,6 +18,10 @@ resetTextButton.addEventListener('click', () => {
 resetHTMLButton.addEventListener('click', () => {
   htmlField.value = '';
   htmlOutput.innerHTML = '';
+  const placeholder = document.createElement('span');
+  placeholder.innerText = 'HTML preview';
+  placeholder.classList.add('placeholder');
+  htmlOutput.append(placeholder);
 });
 
 resetImageButton.addEventListener('click', () => {
