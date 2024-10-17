@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clipboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <fieldset>
-        <button id="paste-text-button">Paste text</button>
-        <textarea id="text" rows="2" cols="80"></textarea>
-        <button id="reset-text-button">Clear text</button>
+      <button id="paste-text-button">Paste text</button>
+      <textarea id="text" rows="2" cols="80"></textarea>
+      <button id="reset-text-button">Clear text</button>
     </fieldset>
     <fieldset>
-        <button id="paste-html-button">Paste HTML</button>
-        <textarea id="html" rows="13" cols="80"></textarea>
-        <button id="reset-html-button">Clear HTML</button>
+      <button id="paste-html-button">Paste HTML</button>
+      <textarea id="html" rows="10" cols="80"></textarea>
+      <button id="reset-html-button">Clear HTML</button>
     </fieldset>
-    <output id="html-output">
-        <span class="placeholder">HTML preview</span>
-    </output>
+    <div id="html-output" class="output">
+      <span class="placeholder">HTML preview</span>
+    </div>
+    <div class="image-wrapper">
+      <div>
+        <button id="paste-image-button">Paste image</button>
+        <button id="reset-image-button">Clear image</button>
+      </div>
+    </div>
     <script src="clipboard.js"></script>
-</body>
+  </body>
 </html>

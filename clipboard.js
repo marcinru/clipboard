@@ -7,13 +7,24 @@ const htmlField = document.getElementById('html');
 const resetHTMLButton = document.getElementById('reset-html-button');
 const htmlOutput = document.getElementById('html-output');
 
+const pasteImageButton = document.getElementById('paste-image-button');
+const resetImageButton = document.getElementById('reset-image-button');
+const imageWrapper = document.querySelector('.image-wrapper');
+
+resetTextButton.addEventListener('click', () => {
+  textField.value = '';
+});
+
 resetHTMLButton.addEventListener('click', () => {
   htmlField.value = '';
   htmlOutput.innerHTML = '';
 });
 
-resetTextButton.addEventListener('click', () => {
-  textField.value = '';
+resetImageButton.addEventListener('click', () => {
+  const images = imageWrapper.querySelectorAll('img');
+  [...images].forEach((img) => {
+    img.remove();
+  });
 });
 
 pasteTextButton.addEventListener('click', async () => {
@@ -37,3 +48,20 @@ pasteHTMLButton.addEventListener('click', async () => {
     }
   }
 });
+
+pasteImageButton.addEventListener('click', async () => {
+  const items = await navigator.clipboard.read();
+
+  for (const item of items) {
+    if (item.types.includes('image/png')) {
+      const blob = await item.getType('image/png');
+      appendImage(blob);
+    }
+  }
+});
+
+const appendImage = (blob) => {
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(blob);
+  imageWrapper.append(img);
+};
